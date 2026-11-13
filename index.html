@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YUSK_SAIIDA — Official Site</title>
+<meta name="description" content="YUSK_SAIIDA 公式サイト。デジタルとリアル、テクノロジーと人の感情が交差する世界をテーマにした日本語エレクトロポップ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05060f; --panel:#0b0e22; --line:#232a55;
+    --text:#f2f3ff; --sub:#9aa3d6; --violet:#b78cff; --cyan:#6ee7ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    line-height:1.9;-webkit-font-smoothing:antialiased}
+  .en{font-family:"Space Grotesk","Zen Kaku Gothic New",sans-serif}
+
+  /* ---------- nav ---------- */
+  nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;
+    justify-content:space-between;padding:14px 22px;
+    background:linear-gradient(180deg,rgba(5,6,15,.85),rgba(5,6,15,0));}
+  nav .logo{font-weight:700;letter-spacing:.22em;font-size:.95rem;color:var(--text);text-decoration:none}
+  nav .menu{display:flex;gap:20px;align-items:center}
+  nav .menu a{color:var(--sub);text-decoration:none;font-size:.8rem;letter-spacing:.18em}
+  nav .menu a:hover{color:var(--text)}
+  nav .menu a.cta{color:#14092b;background:var(--violet);font-weight:700;
+    padding:6px 16px;border-radius:999px;letter-spacing:.08em}
+  @media(max-width:560px){nav .menu a:not(.cta){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 22px 9svh;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:url("assets/jacket-hikari.jpg") center 30%/cover no-repeat;
+    transform:scale(1.06)}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(5,6,15,.42) 0%,rgba(5,6,15,.05) 40%,rgba(5,6,15,.88) 82%,var(--bg) 100%)}
+  .hero-in{position:relative;z-index:1;max-width:880px;margin:0 auto;width:100%}
+  .hero .new{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;
+    letter-spacing:.28em;color:var(--cyan)}
+  .hero .new::before{content:"";width:26px;height:1px;background:var(--cyan)}
+  .hero h1{font-size:clamp(2.6rem,9vw,5.2rem);line-height:1.05;font-weight:900;
+    letter-spacing:.04em;margin:10px 0 4px;
+    background:linear-gradient(92deg,#fff 30%,var(--violet) 75%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .song{font-size:clamp(1.3rem,4.5vw,2rem);font-weight:700;letter-spacing:.1em}
+  .hero .song .date{color:var(--sub);font-size:.55em;letter-spacing:.2em;margin-left:12px}
+  .hero .tag{color:#cfd4ff;margin-top:10px;font-size:.95rem}
+  .hero .btns{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.9rem;
+    padding:12px 28px;border-radius:999px;letter-spacing:.06em}
+  .btn.solid{background:var(--violet);color:#14092b}
+  .btn.line{border:1px solid rgba(255,255,255,.5);color:#fff;backdrop-filter:blur(4px)}
+  .scroll{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:1;
+    color:var(--sub);font-size:.65rem;letter-spacing:.4em}
+
+  /* ---------- sections ---------- */
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  section{padding:84px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+  .sec-head h2{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:700;letter-spacing:.14em}
+  .sec-head span{color:var(--sub);font-size:.85rem;letter-spacing:.2em}
+
+  /* ---------- discography ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;
+    overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+  .card:hover{transform:translateY(-4px);border-color:var(--violet)}
+  .card .art{aspect-ratio:1/1;position:relative}
+  .card .art img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .art.tile{display:flex;align-items:center;justify-content:center;padding:24px;
+    background:radial-gradient(120% 120% at 20% 0%,#2a2070 0%,#101736 55%,#0a0d26 100%)}
+  .card .art.tile p{font-size:1.5rem;font-weight:900;letter-spacing:.06em;text-align:center;
+    color:#e9e6ff;text-shadow:0 0 24px rgba(183,140,255,.55);line-height:1.5}
+  .card .body{padding:16px 18px 18px;display:flex;align-items:center;gap:10px}
+  .card h3{font-size:1.05rem;line-height:1.5}
+  .card .meta{color:var(--sub);font-size:.78rem;letter-spacing:.08em}
+  .card .go{margin-left:auto;flex:none}
+  .card .go a{color:var(--cyan);text-decoration:none;font-size:.82rem;
+    border:1px solid var(--line);padding:6px 15px;border-radius:999px}
+  .card .go a:hover{border-color:var(--cyan)}
+
+  /* ---------- profile ---------- */
+  .profile-box{max-width:640px}
+  .profile-box .who{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+  .profile-box .who img{width:84px;height:84px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--violet);box-shadow:0 0 22px rgba(183,140,255,.4)}
+  .profile-box .who p{font-size:1.25rem;font-weight:700;letter-spacing:.14em}
+  .profile-box .who small{display:block;color:var(--sub);font-weight:400;letter-spacing:.1em}
+  .profile-box p.body{color:#d6daf8;margin-bottom:1.1em}
+
+  footer{margin-top:96px;border-top:1px solid var(--line);padding:34px 22px 44px;
+    text-align:center;color:var(--sub);font-size:.8rem}
+  footer .fl{display:flex;gap:18px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+  footer a{color:var(--sub);text-decoration:none;letter-spacing:.14em;font-size:.78rem}
+  footer a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo en" href="#top">YUSK_SAIIDA</a>
+  <div class="menu en">
+    <a href="#music">MUSIC</a>
+    <a href="#profile">PROFILE</a>
+    <a href="#contact">CONTACT</a>
+    <a class="cta" href="https://open.spotify.com/artist/6A5MuLFXsfLhOAikB8oFNU">Spotify</a>
+  </div>
+</nav>
+
+<!-- ============ HERO : LATEST RELEASE ============ -->
+<header class="hero" id="top">
+  <div class="hero-in">
+    <p class="new en">NEW SINGLE — 3RD</p>
+    <h1 class="en">YUSK_SAIIDA</h1>
+    <p class="song">ひかりの座標<span class="date en">2026.11.13 RELEASE</span></p>
+    <p class="tag">どれだけ遠く離れていても、消えない想いがある。<br>デジタルな世界の中に残る、人のぬくもりと大切なつながり。</p>
+    <div class="btns">
+      <a class="btn solid" href="https://youtu.be/lREthpXxKHM">▶ YouTubeで聴く</a>
+      <a class="btn line" href="https://open.spotify.com/track/6oFyL3pjwWRcG1thfSG43H">Spotifyで聴く</a>
+    </div>
+  </div>
+  <p class="scroll en">SCROLL</p>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ MUSIC ============ -->
+  <section id="music">
+    <div class="sec-head"><h2 class="en">MUSIC</h2><span>ディスコグラフィ</span></div>
+    <div class="grid">
+      <article class="card">
+        <div class="art"><img src="assets/jacket-hikari.jpg" alt="ひかりの座標 ジャケット"></div>
+        <div class="body">
+          <div><h3>ひかりの座標</h3><p class="meta">3rd Single ・ 2026.11.13</p></div>
+          <div class="go"><a href="https://open.spotify.com/track/6oFyL3pjwWRcG1thfSG43H">聴く</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="art tile"><p>Still Looking<br>for You</p></div>
+        <div class="body">
+          <div><h3>Still Looking for You</h3><p class="meta">2nd Single ・ 2026.10.30</p></div>
+          <div class="go"><a href="https://open.spotify.com/artist/6A5MuLFXsfLhOAikB8oFNU">聴く</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="art"><img src="assets/jacket-kansho.jpg" alt="感情アップデート中 ジャケット"></div>
+        <div class="body">
+          <div><h3>感情アップデート中</h3><p class="meta">1st Single ・ 2026.10.16</p></div>
+          <div class="go"><a href="https://youtu.be/HiNG0vnlekU">聴く</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="art tile"><p>Blooming<br>Future</p></div>
+        <div class="body">
+          <div><h3>Blooming Future</h3><p class="meta">Single ・ 2026.10.10</p></div>
+          <div class="go"><a href="https://open.spotify.com/artist/6A5MuLFXsfLhOAikB8oFNU">聴く</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ PROFILE ============ -->
+  <section id="profile">
+    <div class="sec-head"><h2 class="en">PROFILE</h2><span>プロフィール</span></div>
+    <div class="profile-box">
+      <div class="who">
+        <img src="assets/avatar.jpg" alt="YUSK_SAIIDA アバター">
+        <p>YUSK_SAIIDA<small>Japanese Electropop</small></p>
+      </div>
+      <p class="body">日常の中にある感情や、言葉にならない瞬間を音楽に。</p>
+      <p class="body">YUSK_SAIIDAは、デジタルとリアル、テクノロジーと人の感情が交差する世界をテーマに音楽を制作するアーティスト。</p>
+      <p class="body">AIを創作のツールとして取り入れながら、現代の空気感や心の揺らぎを、自由な発想で音楽へと変えていく。</p>
+      <p class="body">記憶、恋愛、孤独、希望。<br>そして、変わり続ける感情。</p>
+      <p class="body">聴く人それぞれの物語と重なる音楽を届けていく。</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="sec-head"><h2 class="en">CONTACT</h2><span>お問い合わせ</span></div>
+    <p style="color:#d6daf8">For music-related inquiries: <a href="mailto:bbmug17530@yahoo.co.jp" style="color:var(--cyan)">bbmug17530@yahoo.co.jp</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="fl en">
+    <a href="https://www.youtube.com/@yusk_saiida">YOUTUBE</a>
+    <a href="https://open.spotify.com/artist/6A5MuLFXsfLhOAikB8oFNU">SPOTIFY</a>
+    <a href="https://music.apple.com/jp/artist/6818056372">APPLE MUSIC</a>
+  </div>
+  <p>© 2026 YUSK_SAIIDA</p>
+</footer>
+
+</body>
+</html>
