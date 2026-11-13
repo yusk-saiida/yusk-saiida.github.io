@@ -38,16 +38,17 @@
     background:url("assets/jacket-hikari.jpg") center 30%/cover no-repeat;
     transform:scale(1.06)}
   .hero::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(5,6,15,.42) 0%,rgba(5,6,15,.05) 40%,rgba(5,6,15,.88) 82%,var(--bg) 100%)}
+    background:radial-gradient(ellipse 105% 62% at 50% 36%,rgba(5,6,20,.48),rgba(5,6,20,0) 70%),
+    linear-gradient(180deg,rgba(5,6,15,.5) 0%,rgba(5,6,15,.12) 40%,rgba(5,6,15,.88) 82%,var(--bg) 100%)}
   .hero-in{position:relative;z-index:1;max-width:880px;margin:0 auto;width:100%}
   .hero .new{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;
     letter-spacing:.28em;color:var(--cyan)}
   .hero .new::before{content:"";width:26px;height:1px;background:var(--cyan)}
   .hero h1{font-size:clamp(2.6rem,9vw,5.2rem);line-height:1.05;font-weight:900;
     letter-spacing:.04em;margin:10px 0 4px;
-    background:linear-gradient(92deg,#fff 24%,#9a7bff 55%,#6d4ae0 78%,#3d9dc4);
+    background:linear-gradient(92deg,#fff 20%,#8f6bff 48%,#5a35d6 72%,#2f7ea6);
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 2px 14px rgba(4,6,24,.55))}
+    filter:drop-shadow(0 3px 20px rgba(3,4,18,.7))}
   .hero .song{font-size:clamp(1.3rem,4.5vw,2rem);font-weight:700;letter-spacing:.1em}
   .hero .song .date{color:var(--sub);font-size:.55em;letter-spacing:.2em;margin-left:12px}
   .hero .tag{color:#cfd4ff;margin-top:10px;font-size:.95rem}
