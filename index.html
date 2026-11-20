@@ -87,6 +87,20 @@
     border:1px solid var(--line);padding:6px 15px;border-radius:999px}
   .card .go a:hover{border-color:var(--cyan)}
 
+  /* ---------- coming soon ---------- */
+  .soon{display:flex;gap:26px;align-items:center;background:var(--panel);
+    border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:64px}
+  .soon img{width:168px;height:168px;border-radius:12px;object-fit:cover;flex:none}
+  .soon .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;
+    letter-spacing:.28em;color:var(--cyan)}
+  .soon .eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan)}
+  .soon h3{font-size:clamp(1.3rem,4vw,1.7rem);font-weight:700;letter-spacing:.08em;margin:6px 0 2px}
+  .soon .date{color:var(--sub);font-size:.8rem;letter-spacing:.2em}
+  .soon p.desc{color:#d6daf8;font-size:.92rem;margin-top:8px}
+  .soon .btn{margin-top:16px;padding:10px 24px;font-size:.85rem}
+  @media(max-width:560px){.soon{flex-direction:column;align-items:flex-start}
+    .soon img{width:100%;height:auto;aspect-ratio:1/1}}
+
   /* ---------- profile ---------- */
   .profile-box{max-width:640px}
   .profile-box .who{display:flex;align-items:center;gap:18px;margin-bottom:26px}
@@ -131,6 +145,18 @@
 </header>
 
 <div class="wrap">
+
+  <!-- ============ COMING SOON ============ -->
+  <div class="soon">
+    <img src="assets/jacket-pixel.jpg" alt="ピクセル・ノスタルジア ジャケット">
+    <div>
+      <p class="eyebrow en">COMING SOON — 4TH SINGLE</p>
+      <h3>ピクセル・ノスタルジア</h3>
+      <p class="date en">2026.11.27 RELEASE</p>
+      <p class="desc">初のインストゥルメンタル・シングル。132 BPMの四つ打ちに、ガラス質のアルペジオとレトロゲームの効果音。</p>
+      <a class="btn solid" href="https://www.youtube.com/@yusk_saiida">▶ ティザーを見る</a>
+    </div>
+  </div>
 
   <!-- ============ MUSIC ============ -->
   <section id="music">
